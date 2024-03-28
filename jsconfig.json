@@ -9,6 +9,7 @@
         "paths": {
             "@/*": ["src/*"],
             "@ui/*": ["src/shared/ui/*"],
+            "@assets/*": ["src/assets/*"],
         }
     },
     "exclude": ["dist", "node_modules", "build", ".vscode", "coverage", ".npm", ".yarn"]
