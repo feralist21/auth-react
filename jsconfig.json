@@ -8,6 +8,7 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"],
+            "@ui/*": ["src/shared/ui/*"],
         }
     },
     "exclude": ["dist", "node_modules", "build", ".vscode", "coverage", ".npm", ".yarn"]
