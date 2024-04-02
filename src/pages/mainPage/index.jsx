@@ -1,13 +1,13 @@
+import { useAuthContext } from "@/modules/AuthForm";
 import { Button } from "@/shared/ui";
-import { useAuth } from "../auth/AuthProvider";
 import { useEffect, useState } from "react";
 
 const MainPage = () => {
     const [user, setUser] = useState(null);
-    const auth = useAuth();
+    const auth = useAuthContext();
 
     const logout = () => {
-        auth.logOut();
+        auth.logOutAction();
     };
 
     useEffect(() => {

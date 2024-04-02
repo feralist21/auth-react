@@ -1,9 +1,10 @@
+import "./index.css";
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./index.css";
-import AuthProvider from "@/pages/auth/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
+import { AuthProvider } from "@/modules/AuthForm";
 
 import AuthPage from "@/pages/auth";
 import MainPage from "@/pages/mainPage";
