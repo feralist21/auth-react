@@ -9,7 +9,10 @@ const AuthPage = () => {
     const handleSubmit = useCallback((event) => {
         event.preventDefault();
 
-        console.log('handleSubmit');
+        if (!login || !password) {
+            console.log('Пустые данные');
+            return;
+        }
 
         fetch("https://dummyjson.com/auth/login", {
             method: "POST",
@@ -28,7 +31,7 @@ const AuthPage = () => {
     return (
         <div className="w-full h-screen bg-gray-900 flex items-center justify-center">
             <div className="bg-gray-900 w-full h-screen text-white flex items-center justify-center">
-                <div className="p-10 shadow-md rounded-md">
+                <div className="w-[400px]">
                     <img
                         src={reactLogo}
                         className="block w-20 h-auto mx-auto mb-4"
