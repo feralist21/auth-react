@@ -1,32 +1,27 @@
 import reactLogo from "@assets/react.svg";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { Input, Button } from "@/shared/ui";
+import { useAuth } from "./AuthProvider";
 
 const AuthPage = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
+    const auth = useAuth();
 
-    const handleSubmit = useCallback((event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         if (!login || !password) {
-            console.log('Пустые данные');
+            console.log("Пустые данные");
             return;
         }
 
-        fetch("https://dummyjson.com/auth/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                username: login,
-                password: password,
-                expiresInMins: 5,
-            }),
-        })
-            .then((res) => res.json())
-            .then(console.log);
-    }, [login, password]);
-
+        auth.loginAction({
+            username: login,
+            password: password,
+            expiresInMins: 10,
+        });
+    };
 
     return (
         <div className="w-full h-screen bg-gray-900 flex items-center justify-center">
